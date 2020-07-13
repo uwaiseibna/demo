@@ -7,20 +7,24 @@ main()
     cin>>n>>d;
     int a[n];
     int sum;
-    int count=0;
+    float count=0;
     for (int i=0;i<n;i++)
     {
         cin>>a[i];
     }
     sort(a,a+n);
-    for (int i=0;i<n-1;i++)
+    float d1=a[0]-0;
+    float d2 = d- a[n-1];
+    float x = max(d1,d2);
+
+    for (int i=1;i<n;i++)
     {
-        sum=a[i+1]-a[i];
+        sum= a[i]-a[i-1];
         if(sum>count)
         {
-            sum=count;
+            count =sum;
         }
     }
-    cout<<count;
-
+    
+    cout<<max(x,(count/2));
 }
