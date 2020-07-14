@@ -1,34 +1,36 @@
 #include<bits/stdc++.h>
+//#define mem(array,num) memset(array,num,sizeof(array))
 using namespace std;
-
-main()
+int main()
 {
-  int n,x;
-  int nxt=0;
-  cin>>x>>n;
-  int a [n][2];
-
-  for(int i=0 ;i<n;i++)
-  {
-      for(int j=0;j<2;j++)
-      {
-          cin>>a[i][j];
-      }
-  }
-for (int i=0;i<n;i++)
-{
-    if(x<a[i][0])
+    long int x,c,i,j,s,n,array,num;
+    pair<int, int>a[1000];
+    while(cin>>s>>n)
     {
-        cout<<"NO";
-        return 0;
-    }
-    x= x+a[i][1];
-    if(i==n-1)
-    {
-        cout<<"YES";
-        return 0;
-    }
+        c=1;
+        for(i=0;i<n;i++)
+        {
+            cin>>a[i].first>>a[i].second;
 
+        }
+        sort(a,a+n);
+         for(i=0;i<n;i++)
+         {
+             if(s<=a[i].first)
+             {
+                 c=0;
+                 break;
+             }
+             else
+             {
+                 s=s+a[i].second;
+             }
+         }
+         if(c==0)
+            cout<<"NO\n";
+         else
+            cout<<"YES\n";
+    }
+    return 0;
 }
 
-}
